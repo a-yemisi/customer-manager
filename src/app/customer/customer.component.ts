@@ -27,7 +27,6 @@ export class CustomerComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.onGetCustomer();
-    this.appendCustomers();
   }
 
   // customer: string = 'Yemisi';
@@ -77,26 +76,9 @@ export class CustomerComponent implements OnInit {
     });
   }
 
-  async appendCustomers(): Promise<void> {
-    this.customerService.getData()?.subscribe((newCustomer) => {
-      if (newCustomer) {
-        this.dataSource = newCustomer;
-        this.filteredDataSource = newCustomer;
-        this.changeDetectorRef.markForCheck();
-      }
-      console.log(newCustomer);
-    });
-  }
-
   goToEdit(element: ICustomer, id: number): void {
     this.customerService.selectedCustomer = element;
     this.router.navigateByUrl(`/edit-customer/${id}`);
-  }
-
-  editCustomer(element: ICustomer, id: number): void {
-    this.customerService.editCustomers(element).subscribe((response) => {
-      this.dialog.open(DialogComponent, { data: element });
-    });
   }
 
   initDelete(rowIndex: number): void {

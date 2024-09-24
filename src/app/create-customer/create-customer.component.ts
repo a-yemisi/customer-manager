@@ -42,13 +42,9 @@ export class CreateCustomerComponent implements OnInit {
   }
 
   createNewCustomer() {
-    // console.log('Hold on');
     const customerData = this.customerFormGroup.value;
-    console.log({ customerData });
     this.customerService.createCustomers(customerData).subscribe(
       (response) => {
-        console.log(response);
-
         alert('Customer created successfully!');
         this.dialog.open(DialogComponent, {
           data: response,
@@ -75,8 +71,8 @@ export class CreateCustomerComponent implements OnInit {
           this.dialog.open(DialogComponent, {
             data: data,
           });
+          this.router.navigateByUrl('');
         });
     }
-    this.router.navigateByUrl('');
   }
 }
