@@ -1,0 +1,11 @@
+form {
+  width: 30rem;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+div {
+  display: grid;
+  height: 100%;
+  place-content: center;
+}

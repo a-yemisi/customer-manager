@@ -1,0 +1,55 @@
+<!-- <p>create-customer works!</p> -->
+<div>
+  <form [formGroup]="customerFormGroup" action="">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Placeholder"
+        formControlName="name"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Placeholder"
+        formControlName="email"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Phone Number</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Placeholder"
+        formControlName="phone"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Placeholder"
+        formControlName="address"
+        value=""
+      />
+    </mat-form-field>
+    <!-- <mat-form-field>
+      <mat-label>Gender</mat-label>
+      <input type="text" matInput placeholder="Placeholder" />
+    </mat-form-field> -->
+
+    <button
+      mat-raised-button
+      type="submit"
+      (click)="pathname === 'new-customer' ? createNewCustomer() : onEdit()"
+      [disabled]="!customerFormGroup.valid"
+    >
+      Save
+    </button>
+  </form>
+</div>
